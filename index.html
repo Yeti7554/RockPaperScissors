@@ -37,12 +37,10 @@
 
                 if (playerSelection == 'Rock' && computerSelection == 'Paper') {
                     return 'You Lose! Paper beats Rock!';
-                    const computerScore = (computerScore + 1);
                 }
 
                 else if (playerSelection == 'Rock' && computerSelection == 'Scissors') {
                     return 'You Win! Rock beats Scissors!';
-                    const playerScore = (playerScore + 1);
                 }
 
                 else if (playerSelection == 'Rock' && computerSelection == 'Rock') {
@@ -51,7 +49,6 @@
 
                 else if (playerSelection == 'Paper' && computerSelection == 'Rock') {
                     return 'You Win! Paper Beats Rock!';
-                    const playerScore = (playerScore + 1);
                 }
 
                 else if (playerSelection == 'Paper' && computerSelection == 'Paper') {
@@ -59,18 +56,15 @@
                 }
 
                 else if (playerSelection == 'Paper' && computerSelection == 'Scissors') {
-                    return 'You lose! Scissors beats Paper!';
-                    const computerScore = (computerScore + 1);
+                    return 'You Lose! Scissors beats Paper!';
                 }
 
                 else if (playerSelection == 'Scissors' && computerSelection == 'Rock') {
-                    return 'You lose! Rock beats Scissors!';
-                    const computerScore = (computerScore + 1);
+                    return 'You Lose! Rock beats Scissors!';
                 }
 
                 else if (playerSelection == 'Scissors' && computerSelection == 'Paper') {
                     return 'You Win! Scissors beats Paper!';
-                    const playerScore = (playerScore + 1);
                 }
 
                 else if (playerSelection == 'Scissors' && computerSelection =='Scissors') {
@@ -85,12 +79,14 @@
             for (let i = 0; i < 5; i++) {
                 let playerSelection=playerChoice();
                 let computerSelection = getComputerChoice();
-                result= playRound(playerSelection, computerSelection);
-                console.log(result)
-                if (result.includes("You Win")) {
-                   let playerScore = playerScore+1;
+                console.log(playRound(playerSelection, computerSelection));
+                if ((playRound(playerSelection, computerSelection)).includes("You Win")) {
+                    playerScore = playerScore + 1;
                 }
-                
+                else if ((playRound(playerSelection, computerSelection)).includes("You Lose")) {
+                    computerScore = computerScore + 1;
+                };
+                console.log(`The score is ${playerScore}-${computerScore}`);
             }
 
             
